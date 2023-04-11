@@ -9,11 +9,11 @@ module.exports = [
     input: './src/core/index.ts',
     output: [
       // ES
-      { file: resolve('lib/index.esm.js'), format: 'esm' },
+      { file: resolve('build/index.esm.js'), format: 'esm' },
       // umd
-      { file: resolve('lib/index.js'), format: 'umd', name: 'monitorSdk' },
+      { file: resolve('build/index.js'), format: 'umd', name: 'monitorSdk' },
       // cjs
-      { file: resolve('lib/index.cjs.js'), format: 'cjs' },
+      { file: resolve('build/index.cjs.js'), format: 'cjs' },
     ],
     // 配置监听处理
     watch: {
@@ -23,7 +23,7 @@ module.exports = [
   },
   {
     input: './src/core/index.ts',
-    output: [{ file: resolve('lib/index.d.ts'), format: 'es' }],
+    output: [{ file: resolve('build/index.d.ts'), format: 'es' }],
     plugins: [dts()],
   },
 ]

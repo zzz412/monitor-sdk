@@ -5,7 +5,7 @@ import { addCache, clearCache, getCache } from './cache'
  * @param {string} type
  * @param {object} params
  */
-let timer: number
+let timer: NodeJS.Timeout
 
 export function lazyReport(type: RqType, params: object) {
   const appId = window['_monitor_app_id_']
