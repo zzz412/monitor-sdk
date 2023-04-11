@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./lib/index.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <button onclick="fn()">JS错误点我</button>
+    <button onclick="fn2()">资源错误点我</button>
+    <button onclick="fn3()">Promise错误点我</button>
+    <button onclick="fn4()">手动发出错误</button>
+
+    <button onclick="fn5()" data-no>按钮1</button>
+    <button data-target="测试">按钮2</button>
+    <button id="btn2">按钮3</button>
+  </div>
+  <script>
+    monitorSdk.init({ requestUrl: 'http://127.0.0.1:3009/report/actions', appId: 'TEST_PROJECT', userId: 'HTML_01', delay: 2000, jsError: true, domTracker: true })
+    const fn = () => {
+      console.log(window.nun.a)
+    }
+
+    const fn2 = () => {
+      const img = document.createElement('img')
+      img.src = 'http://127.0.0.1:5500/images/test.png'
+      document.querySelector('body').append(img)
+    }
+
+    const fn3 = () => {
+      Promise.reject('promise error')
+      // setTimeout(() => {
+      //   console.log(aaaa)
+      // })
+    }
+
+    const fn4 = () => {
+      try {
+        console.log(hhh)
+      } catch (error) {
+        monitorSdk.errorCatcher(error, '手动捕获错误')
+      }
+    }
+
+    const fn5 = () => {
+      monitorSdk.actionCatcher('submit', '按钮1被点击了')
+    }
+  </script>
+</body>
+
+</html>

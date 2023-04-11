@@ -1,0 +1,30 @@
+{
+  "name": "monitor-sdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "rollup -c -w",
+    "build": "rollup -c",
+    "commit": "cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^17.5.1",
+    "@commitlint/config-conventional": "^17.4.4",
+    "commitizen": "^4.3.0",
+    "cz-customizable": "^7.0.0",
+    "husky": "^8.0.3",
+    "rollup": "^3.20.2",
+    "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "typescript": "^5.0.4"
+  }
+}
