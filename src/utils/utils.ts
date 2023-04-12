@@ -19,3 +19,27 @@ export function getPathTo(element: HTMLElement): string | undefined {
 }
 
 //*[@id="root"]/DIV[1]/DIV[2]/BUTTON[1]
+
+/**
+ * 重写pushState方法和replaceState方法
+ */
+export  function createHistoryEvent<T extends keyof History>(type: T) {
+  const origin = window.history[type]
+  return function (this: any) {
+    const res = origin.apply(this, arguments)
+    const e = new Event(type)
+    window.dispatchEvent(e)
+    return res
+  }
+}
+
+/**
+ * 连续绑定事件
+ */
+export function captureEvents(eventList: string[], handler: () => void) {
+  eventList.forEach(event => {
+    window.addEventListener(event, () => {
+      handler && handler()
+    })
+  })
+}

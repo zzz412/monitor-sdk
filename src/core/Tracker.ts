@@ -1,6 +1,7 @@
-import { DefaultOptions, Options, TrackerConfig } from './../types/core'
+import { DefaultOptions, Options, TrackerConfig } from '../types/core'
 import { autoTrackerReport } from './actionTracker'
 import { errorTrackerReport } from './errorTracker'
+import {hashPageTrackerReport, historyPageTrackerReport} from "./pageTracker";
 
 export default class Tracker {
   public data: Options
@@ -44,7 +45,13 @@ export default class Tracker {
       window['_monitor_request_url'] = requestUrl
     }
     // 1. 开启history模式
+    if (this.data.hashTracker) {
+      hashPageTrackerReport()
+    }
     // 2. 开启hash模式
+    if (this.data.historyTracker) {
+      historyPageTrackerReport()
+    }
     // 3. 开启无痕埋点
     if (this.data.domTracker) {
       autoTrackerReport()
