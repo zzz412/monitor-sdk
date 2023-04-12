@@ -1,7 +1,7 @@
 {
   "author": "mouzhacu <mouzhacu@163.com> (https://github.com/zzz412)",
   "name": "z-monitor-sdk",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "前端监控SDK 适用于各类场景支持: vue、react",
   "main": "build/index.js",
   "module": "build/index.esm.js",
@@ -16,8 +16,16 @@
     }
   },
   "homepage": "https://github.com/zzz412/monitor-sdk",
-  "files": ["build"],
-  "keywords": ["react", "vue", "typescript", "monitor", "tracker"],
+  "files": [
+    "build"
+  ],
+  "keywords": [
+    "react",
+    "vue",
+    "typescript",
+    "monitor",
+    "tracker"
+  ],
   "license": "ISC",
   "devDependencies": {
     "@commitlint/cli": "^17.5.1",
